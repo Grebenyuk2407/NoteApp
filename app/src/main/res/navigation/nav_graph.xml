@@ -22,7 +22,7 @@
 
         <argument
             android:name="note"
-            app:argType="dev.androidbroadcast.thenotesapp.model.Notes"
+            app:argType="dev.androidbroadcast.thenotesapp.model.Note"
             app:nullable="true"
             />
     </fragment>

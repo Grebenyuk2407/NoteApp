@@ -7,22 +7,22 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import dev.androidbroadcast.thenotesapp.model.Notes
+import dev.androidbroadcast.thenotesapp.model.Note
 
 @Dao
 interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note:Notes)
+    suspend fun insertNote(note:Note)
 
     @Update
-    suspend fun updateNote(note: Notes)
+    suspend fun updateNote(note: Note)
 
     @Delete
-    suspend fun deleteNote(note: Notes)
+    suspend fun deleteNote(note: Note)
 
     @Query("SELECT * FROM NOTES ORDER BY id DESC")
-    fun getAllNotes(): LiveData<List<Notes>>
+    fun getAllNotes(): LiveData<List<Note>>
 
     @Query("SELECT*FROM NOTES WHERE noteTitle LIKE :query OR noteDesc LIKE :query")
-    fun searchNote(query:String?):LiveData<List<Notes>>
+    fun searchNote(query:String?):LiveData<List<Note>>
 }
